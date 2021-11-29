@@ -24,7 +24,7 @@ html {
 
 body {
     font-family: Inter, Arial, Helvetica, sans-serif;
-    font-size: 2.4rem;
+    font-size: 2rem;
     line-height: 1.5;
     color: var(--color-body);
 }
@@ -216,7 +216,7 @@ a {
     font-size: 1.8rem;
     font-weight: 800;
     margin: 1rem 0;
-    padding: 2rem 3rem;
+    padding: 2rem 4vw;
     text-transform: uppercase;
     white-space: nowrap;
     text-align: center;
@@ -309,6 +309,7 @@ a {
     border: 0;
     flex-grow: 1;
     padding: 1.5rem 2rem;
+    width: 0;
 }
 
 .input-group .btn {
@@ -340,7 +341,7 @@ a {
 
 .card__header,
 .card__body {
-    padding: 2rem 3rem;
+    padding: 2rem 7%;
 }
 
 .card--primary .card__header {
@@ -544,8 +545,14 @@ a {
     padding: 3rem;
 }
 
+.testimonial .quote {
+    margin: 2rem 0;
+    font-size: 110%;
+}
+
 .testimonial__image {
     position: relative;
+    margin: 0 3rem;
 }
 
 .testimonial__image > img {
@@ -561,12 +568,18 @@ a {
 }
 
 @media screen and (min-width: 768px) {
+    .testimonial__image {
+        margin: 0;
+    }
+
     .testimonial .quote ,
     .testimonial .quote__author{
         font-size: 2.4rem;
     }
     .testimonial .quote {
-        margin-left: 6rem;
+        margin: 5rem 0 0 6rem;
+        font-size: 120%;
+        line-height: 1.5;
     }
 }
 
@@ -716,7 +729,7 @@ a {
 /* Blocks */
 
 .block {
-    --padding-vertical: 6rem;
+    --padding-vertical: 5rem;
     padding: var(--padding-vertical) 2rem;
 }
   
@@ -746,12 +759,12 @@ a {
 
 .block--skewed-right {
     padding-bottom: calc(var(--padding-vertical) + 4rem);
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 95%);
 }
   
 .block--skewed-left {
     padding-bottom: calc(var(--padding-vertical) + 4rem);
-    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 0% 100%);
 }
   
 .container {
@@ -798,8 +811,9 @@ a {
 }
 
 .block-domain__prices {
+    color: var(--color-headings);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 6rem);
     font-size: 2rem;
     font-weight: 600;
@@ -853,6 +867,7 @@ a {
 
 .footer {
     background: #232323;
+    padding-top: 10rem;
 }
 
 .footer a {
@@ -876,6 +891,8 @@ a {
 .footer__heading {
     text-transform: uppercase;
     font-weight: 600;
+    font-size: 2.5rem;
+    line-height: 1.5;
 }
 
 .footer__brand {
@@ -896,6 +913,10 @@ a {
 }
 
 @media screen and (min-width: 1024px) {
+    .footer {
+        font-size: 1.5rem;
+      }
+
     .footer__sections {
         grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     }
@@ -947,5 +968,12 @@ a {
         max-width: 700px;
     }
 }
+
+/* Sign-up Callout */
+
+.callout-signup {
+    transform: translateY(5rem);
+}
+  
 
 
