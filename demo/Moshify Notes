@@ -1,0 +1,286 @@
+Tools you need:
+VS CODE
+
+- HTML CSS Support
+- CSS Peak
+- Prettier (format on save)
+- Highlight Matching Tag
+- TODO Highlight
+- Live Server
+- GIT
+
+Setting up project:
+New folder, example Moshify
+New file index.html  
+ "!" to generate basic HTML template
+New folder css
+Add two files normalize.css and styles.css
+Add project under source control, initialize repository.
+(database to track project history)
+Install the multiple fonts available.
+Prepare the design file.
+
+Identify the Components:
+The idea of Modular CSS
+is to break down the page into a bunch of components,
+and then compose the components together to build a complext layout.
+First build the Navigation bar like it is the only component.
+Below the Nav bar is the Banner or Hero element.
+A title, description, button and image element.
+Below that is an input field.
+Then Badge components, Inline lists(without bullet points).
+Menus in Nav bar are example of inline lists.
+Media Components are ones with an icon/image, a title, and text,
+built in isolation and repleated.
+There is a Quote component.
+A Cut Out component encourages people to take action.
+To built this page,
+first we build the individual building blocks or components,
+and when all the components are ready
+and look great on mobile, tablet or desktop scrrens,
+then we will compose them together to build this page.
+We can then also build other pages as well.
+
+Color Palette:
+Usually has a Primary, Secondary, and Accent Color.
+Dark blue could be primary, light blue as secondary,
+and orange as accent.
+We use ":root" pseudoclass to define global properties.
+
+Typography:
+All about fonts and sizes.
+First we look at mobile as we are taking mobile first apprpach.
+We go to fonts.google.com to download font Inter.
+We copy the link and paste before css imports.
+We now add the fonts for body in styles.css,
+also the fallback fonts.
+In body use zen coding "h${Heading $}\*3" , "p>Lorem20"
+
+Links:
+Link component implementation
+"a.link-arrow" in body.
+We create the component in a components folder.
+
+Badges:
+We apply some object oriented css principles.
+The second principal says that we should sperate structure from skin.
+The font family used here is variable font file, a single font file,
+but usually we download multiple font files from google.
+
+Lists:
+We have horizontal and vertical lists.
+"ul.list>li{Item $}\*3"
+You want to apply object oriented css principals
+and seperate from skin.
+
+Icons:
+We go to a sprite generator site like svgsprit.es
+as part of the optimization technique
+of combining many svg into one file to reduce number of http requests.
+We download the combined svg file and add to images folder.
+An svg file is essentially a text file,
+its in XML, has the elements of svg, symbol, path.
+Each symbol representing an icon,
+and can have more than one path,
+that is curves that define an icon.
+Each symbol has an id attribute based on name of file.
+We are using absolute pixel values here because they always stay same.
+By default will be block element,
+we could change display to inline-block,
+but icon would not be alligned,
+so we use "display: inline-flex" and justify and align to center.
+
+Buttons:
+Some buttons stretch to fill up content(block element),
+some buttons fill entire space.
+First we define button without skin, then with skin.
+we set nowrap for white space so incase there is no space,
+text and button dont wrap into another line.  
+ If you don't specify box sizing, button box will be different sized,
+but by default button elements have border box.
+Using universal selector we set box-sizing to border-box.
+
+Inputs:
+The input component is not a component by itself,
+it has a button.
+
+Input Group:
+We can group the input with any element, but just a button.
+Input group stretches to take up all space
+as block level elements behave this way, so we use flex.
+Absolute values when you always want the same value.
+Can place button or logo before or after group.
+All these combinations work.
+This is the benifit of building in isolation.
+When we build and test all components in isolation,
+then we can easily combine them to build complex pages.
+This is the Bottom Up approach (component first).
+In contrast there is the Top Down approach (Page first),
+and this approach can lead to weird layout issues.
+
+Cards:
+Plans:
+Popular Badge:
+As popular svg on display is an inline element,
+we set it to inline-block.
+We set the position to absolute,
+meaning the parent of container should be relatively positioned.
+
+Media Objects:
+".media>.media**image+.media**body"
+First we must put body right next to tex using flex.
+
+Quotes:
+Using pseudoelement selectors we can insert content before or after.
+The by part of the quote is similar to media component,
+we add it to footer.
+We can position the icon to center of title
+using relative positioning.
+
+Grids:
+There are many places on page that need a 2 column grid.
+If we use the grid component we can use it to build the layouts.
+The mobile version has a single column grid.
+".grid.grid--1x2"
+1fr 1fr or repeat(2, fr) is taking all available space,
+dividing by 2, and giving each column 1 slice.
+
+Testimonials:
+We now have all building bocks to create Testimonials component.
+
+Callouts:
+On the surface it looks like a card element.
+There are no shadows,
+and the entire component has a background color.
+Our card implementation assumes a header and body,
+with only header with color.
+To resuse the card component would be semantically incorrect.
+We create a new component.
+Object oriented css says you should seperate content from container.
+
+Collapsibles:
+The footer section has collapsible sections.
+Before we build a footer component,
+we want to build a collapsible component.
+Every collapsible component has a header and body.
+Headers have a heading and icon.
+Flex to layout items horizontally or vertically.
+Space between pushes items to edge of container.
+To animate the transition we change from display to max-height.
+To hide the content we set overflow to zero.
+The goal with building reusable components is structure.
+They can be styled later.
+See main.js for explanation of code.
+
+Navigation Bars:
+The desktop has it fully expanded.
+Mobile has a toggler button.
+A logo, a toggler button(invisible on desktop),
+and unordered list.
+To lay this out we use flex.
+
+Hero:
+Now we build the banner.
+A 2 column grid with an image.
+On boile is a 1 column grid.
+We have the essential components to build this component.
+The desktop version of design has content constrained by container.
+We could have a spereate container or have it be part of it.
+
+Optimizing Images:
+Serve a 570px-wide image
+Let the browsers do small resizing (eg570 to 500)
+Provide a 2x version for high-density screens.
+1710 width for 3x screen @3x.png.
+1140 width for 2x screen @2x.png.
+570 for 1x version @1x.png.
+We can convert png to webp to make even smaller.
+
+Domain Block:
+Utility First/Atomic Frameworks (Box shadow,border,font,text alilgn).
+
+Features Block:
+We take 570px as base of image as on desktop only takes half screen.
+
+Footer:
+Desktop has collapsibles, mobile does not.
+Use auto-fit for grid to fit as many items as it can.
+
+Putting it all together:
+Hero, Domain and Domain block first.
+
+Animation:
+AOS Animate on scroll library.
+A js library that listens to position of scrollbar,
+and when item becomes available it applies animation to it.
+
+Search Engine Optimization:
+Metatags. Title, description.
+Open Graph Protocol for when page is shared.
+
+HTML and CSS Validation:
+Validate page to see if it obeys rules all browsers expect.
+HTML validator says inside the footer we cannot have a header.
+We change header and brand section to div.
+
+Building for production:
+Combine css and js files,
+to reduce number of requests.
+Minify JS/CSS files,
+to remove extra space and unnecesary charecters,
+and reduce size of assets.
+Optimize images,
+we used photoshop but we can use command line tools.
+
+Build Tools:
+Webpack(requires lot of configuration).
+Roolup.
+Parcel is a zero configuration web application bundler,
+which is perfect for beginners who don't want to configure.
+"node -v"
+"npm init -y"
+"npm i -D parcel-bundler" (-D is development dependency)
+"npm i -D parcel-bundler@1.12.4" (for exact version)
+The node_module folder contains
+all libraries parcel is dependent on.
+".gitignore" file with "node_modules/".
+"node_modules/.bin/parcel index.html"
+(where .bin contains executables)
+"sudo npm i -g parcel-bundler" to install parcel globally.
+"parcel index.html",
+parcel comes with it own development server,
+and comes with live reloading,
+so any changes rebuilds and reloads site.
+".cache" and "dist" are part of parcel building website,
+and we don't want to include this in git repository,
+so we add to ".gitignore".
+"parcel build index.html",
+to build for production.
+For "Error: tree.render is not a function",
+create file ".htmlnanorc" and add "{ "minifySvg": false }".
+Parcel removes all spaces between elements,
+almost unreadable for humans but intended for machines.
+This is minification in action.
+There are multiple instances of each file with long numerical names.
+These prevent caching. Sometimes browsers cache files,
+that prevent end users from receiving changes,
+and is the reason for the unique hash in file name.
+The "dist" folder will contain files from previous builds,
+so we can delete and rebuild,
+"parcel build index.html"
+
+Publishing to github:
+"git remote add origin https://github.com/shadowp2810/moshify_web.git"
+"git branch -M main"
+"git push -u origin main"
+
+Deplyment:
+Netlify
+
+Measure Site Performance:
+web.dev/measure/
+adding "aria-label"
+(Accessible Rich Internet Applications) to
+certain elements in index.htmlm
+and "@import './normalize.css';" to styles.css
+so parcel makes single css file.
